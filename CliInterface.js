@@ -32,11 +32,12 @@ export default class CliInterface {
         const { computer_selection, key } = this.guess(6);
         let user_num;
         while (true) {
-            user_num = parseInt(await this.askQuestion(`Enter your number (0...${range - 1}): `));
+            user_num = await this.askQuestion(`Enter your number (0...${range - 1}): `);
             this.other_selections(user_num, dice);
             if (!isNaN(user_num) && user_num >= 0 && user_num < range) break;
             console.log(`Invalid number. Please enter a number between 0 and ${range - 1}`);
         }
+        user_num = parseInt(user_num);
         const fair_index = (computer_selection + user_num) % 6;
         const roll_value = dice[fair_index];
         console.log("My number is", computer_selection, `\n(KEY=${key}).`);
