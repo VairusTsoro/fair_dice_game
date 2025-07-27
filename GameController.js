@@ -34,14 +34,14 @@ export default class GameController {
             user_dice = dices[user_selection]
             console.log("You choose the [" + user_dice.join(', ') + "] dice.");
 
-            left_dices = dices.filter((_, index) => index !== user_dice);
+            left_dices = dices.filter(d => d !== user_dice);
             console.log("I choose my dice:" + left_dices.forEach((d, i) => console.log(`[${d.join(', ')}]`)));
             computer_dice = left_dices[SecureRandomGenerator.generate(0, left_dices.length)];
             console.log("I choose the [" + computer_dice.join(', ') + "] dice.");
         } else {
             computer_dice = dices[SecureRandomGenerator.generate(0, dices.length)];
             console.log("I make the first move and choose the [" + computer_dice.join(', ') + "] dice.");
-            left_dices = dices.filter((_, index) => index !== computer_dice);
+            left_dices = dices.filter(d => d !== computer_dice);
             console.log("Choose your dice:");
             left_dices.forEach((d, i) => console.log(`${i}: [${d.join(', ')}]`));
             console.log("X - exit\nO - help");
