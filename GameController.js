@@ -19,7 +19,7 @@ export default class GameController {
 
         console.log("My selection: " + computer_selection);
         console.log("(KEY=" + key + ").");
-        const player_starts = computer_selection === user_selection;
+        const player_starts = computer_selection === parseInt(user_selection);
         if (player_starts) {
             console.log("You make the first move, choose your dice:");
             dices.forEach((d, i) => console.log(`${i}: [${d.join(', ')}]`));
