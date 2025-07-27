@@ -13,7 +13,7 @@ async function main() {
         process.exit(0);
     } catch (err) {
         console.error('Error:', err.message);
-        console.error('Example usage: node game.js 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3');
+        console.error('Example usage: node main.js 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3');
         process.exit(1);
     }
 }
