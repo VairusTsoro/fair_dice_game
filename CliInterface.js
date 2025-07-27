@@ -28,12 +28,12 @@ export default class CliInterface {
         return { computer_selection: value, key: key };
     }
 
-    static async roll(range, dice) {
+    static async roll(range, dice, table) {
         const { computer_selection, key } = this.guess(6);
         let user_num;
         while (true) {
             user_num = await this.askQuestion(`Enter your number (0...${range - 1}): `);
-            this.other_selections(user_num, dice);
+            this.other_selections(user_num, table);
             if (!isNaN(user_num) && user_num >= 0 && user_num < range) break;
             console.log(`Invalid number. Please enter a number between 0 and ${range - 1}`);
         }

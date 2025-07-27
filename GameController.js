@@ -56,9 +56,9 @@ export default class GameController {
             console.log("You choose the [" + user_dice.join(', ') + "] dice."); 
         }
 
-        computer_roll_value = await CliInterface.roll(6, computer_dice);
+        computer_roll_value = await CliInterface.roll(6, computer_dice, table);
 
-        user_roll_value = await CliInterface.roll(6, user_dice);
+        user_roll_value = await CliInterface.roll(6, user_dice, table);
 
         if (computer_roll_value > user_roll_value) console.log(`I win! My roll: ${computer_roll_value} > Your roll: ${user_roll_value}`);
         else if (computer_roll_value < user_roll_value) console.log(`You win! My roll: ${computer_roll_value} < Your roll: ${user_roll_value}`);
