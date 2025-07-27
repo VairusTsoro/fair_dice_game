@@ -1,5 +1,5 @@
 import CliInterface from './CliInterface.js';
-import SecureRandomGenerator from './SecureRandomGenerator.js';
+import crypto from 'crypto';
 export default class GameController {
     static async play(dices, table) {
         console.log("Dices:", dices.map(dice => dice.join(', ')).join(' | '));
@@ -36,10 +36,10 @@ export default class GameController {
 
             left_dices = dices.filter(d => d !== user_dice);
             console.log("I choose my dice:" + left_dices.forEach((d, i) => console.log(`[${d.join(', ')}]`)));
-            computer_dice = left_dices[SecureRandomGenerator.generate(0, left_dices.length)];
+            computer_dice = left_dices[crypto.randomInt(0, left_dices.length)];
             console.log("I choose the [" + computer_dice.join(', ') + "] dice.");
         } else {
-            computer_dice = dices[SecureRandomGenerator.generate(0, dices.length)];
+            computer_dice = dices[crypto.randomInt(0, dices.length)];
             console.log("I make the first move and choose the [" + computer_dice.join(', ') + "] dice.");
             left_dices = dices.filter(d => d !== computer_dice);
             console.log("Choose your dice:");
